@@ -69,15 +69,15 @@ Once the code is compiled, you can deploy the contract by clicking on the "Deplo
 
 Once the contract is deployed, you can interact with it by calling the contract's functions. Here are the steps for some example interactions:
 
-### Deposit Function: Enter a value in the deposit input field and click deposit.
+**Deposit Function:** Enter a value in the deposit input field and click deposit.
 
-### Withdraw Function: Enter a value in the withdraw input field and click withdraw.
+**Withdraw Function:** Enter a value in the withdraw input field and click withdraw.
 
-### Double Balance Function: Click the doubleBalance button.
+**Double Balance Function:** Click the doubleBalance button.
 
-### Reset Balance Function: Click the resetBalance button.
+**Reset Balance Function:** Click the resetBalance button.
 
-### Get Balance Function: Click the getBalance button to view the current balance.
+**Get Balance Function:** Click the getBalance button to view the current balance.
 
 
 ## Authors
