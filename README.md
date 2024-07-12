@@ -75,8 +75,8 @@ Double Balance Function: Click the doubleBalance button.
 Reset Balance Function: Click the resetBalance button.
 Get Balance Function: Click the getBalance button to view the current balance.
 
-##Authors
+## Authors
 Abero Isaiah D. Geronga
 
-##License
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
