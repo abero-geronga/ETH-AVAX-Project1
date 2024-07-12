@@ -21,26 +21,23 @@ pragma solidity ^0.8.0;
 contract project1 {
 
     uint256 public balance;
-    address public owner;
-
-    // Constructor to set the owner of the contract
-    constructor() {
-        owner = msg.sender;
-    }
 
     // Function to deposit an amount to the balance
+    // Uses require() to ensure a positive deposit amount
     function deposit(uint256 amount) public {
         require(amount > 0, "Deposit amount must be greater than zero.");
         balance += amount;
     }
 
     // Function to withdraw an amount from the balance
+    // Uses require() to ensure there are enough funds
     function withdraw(uint256 amount) public {
         require(amount <= balance, "Insufficient balance.");
         balance -= amount;
     }
 
     // Function to double the balance
+    // Uses assert() to ensure the balance does not overflow
     function doubleBalance() public {
         uint256 newBalance = balance * 2;
         assert(newBalance >= balance); // This checks for overflow
@@ -50,7 +47,7 @@ contract project1 {
     // Function to reset the balance
     // Uses revert() to handle unauthorized access
     function resetBalance() public {
-        if (msg.sender != owner) {
+        if (msg.sender != address(0x123)) {
             revert("Unauthorized access.");
         }
         balance = 0;
@@ -61,6 +58,7 @@ contract project1 {
         return balance;
     }
 }
+
 ```
 
 To compile the code, click on the `Solidity Compiler` tab in the left-hand sidebar. Make sure the `Compiler` option is set to a compatible version (e.g., 0.8.0 or later), and then click on the `project.sol` button.
