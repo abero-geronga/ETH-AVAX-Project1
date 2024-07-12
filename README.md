@@ -1,4 +1,4 @@
-# Error Handling Example
+# ETH-AVAX PROJECT 1
 
 This Solidity program demonstrates the use of `require()`, `assert()`, and `revert()` statements for error handling in smart contracts. The purpose of this program is to provide a basic understanding of these statements and their usage in different scenarios.
 
@@ -12,13 +12,13 @@ This program is a simple contract written in Solidity, a programming language us
 
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `ErrorHandlingExample.sol`). Copy and paste the following code into the file:
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `project1.sol`). Copy and paste the following code into the file:
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ErrorHandlingExample {
+contract project1 {
 
     uint256 public balance;
     address public owner;
@@ -63,9 +63,9 @@ contract ErrorHandlingExample {
 }
 ```
 
-To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to a compatible version (e.g., 0.8.0 or later), and then click on the "Compile ErrorHandlingExample.sol" button.
+To compile the code, click on the `Solidity Compiler` tab in the left-hand sidebar. Make sure the `Compiler` option is set to a compatible version (e.g., 0.8.0 or later), and then click on the `project.sol` button.
 
-Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the ErrorHandlingExample contract from the dropdown menu, and then click on the "Deploy" button.
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the created contract from the dropdown menu, and then click on the `Deploy` button.
 
 Once the contract is deployed, you can interact with it by calling the contract's functions. Here are the steps for some example interactions:
 
