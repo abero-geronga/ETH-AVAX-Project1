@@ -1,10 +1,10 @@
-# ETH-AVAX PROJECT 1
+# Error Handling Example
 
-As per the instructions from Metacrafters: "For this project, you will write a smart contract to create your own ERC20 token and deploy it using HardHat or Remix. Once deployed, you should be able to interact with it for your walk-through video. From your chosen tool, the contract owner should be able to mint tokens to a provided address and any user should be able to burn and transfer tokens."
+This Solidity program demonstrates the use of `require()`, `assert()`, and `revert()` statements for error handling in smart contracts. The purpose of this program is to provide a basic understanding of these statements and their usage in different scenarios.
 
 ## Description
 
-This Solidity program creates an ERC20 token named "Fauna" with the symbol "FNA". The contract allows the owner to mint new tokens and any user to burn and transfer tokens. The purpose of this program is to demonstrate the creation, deployment, and interaction with a custom ERC20 token on the Ethereum blockchain.
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract allows users to deposit and withdraw funds, double the balance, and reset the balance under specific conditions. It utilizes `require()` to validate inputs, `assert()` to check for conditions that should never occur, and `revert()` to handle unauthorized access.
 
 ## Getting Started
 
@@ -12,74 +12,68 @@ This Solidity program creates an ERC20 token named "Fauna" with the symbol "FNA"
 
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `Fauna.sol`). Copy and paste the following code into the file:
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `project1.sol`). Copy and paste the following code into the file:
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.0;
 
+contract project1 {
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+    uint256 public balance;
 
-contract Fauna is ERC20 {
-    address public owner;
-
-    // Constructor that initializes the token with a name, symbol, and initial supply
-    constructor(uint256 initialSupply) ERC20("Fauna", "FNA") {
-        _mint(msg.sender, initialSupply);// Mint the initial supply to the deployer
-        owner = msg.sender;
+    // Function to deposit an amount to the balance
+    // Uses require() to ensure a positive deposit amount
+    function deposit(uint256 amount) public {
+        require(amount > 0, "Deposit amount must be greater than zero.");
+        balance += amount;
     }
 
-     // Modifier to restrict certain functions to the owner only
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Error: Not the Owner");
-        _;
+    // Function to withdraw an amount from the balance
+    // Uses require() to ensure there are enough funds
+    function withdraw(uint256 amount) public {
+        require(amount <= balance, "Insufficient balance.");
+        balance -= amount;
     }
 
-    // Function that allows the owner to mint new tokens
-    function mint(address to, uint256 value) external onlyOwner {
-        _mint(to, value);
+    // Function to double the balance
+    // Uses assert() to ensure the balance does not overflow
+    function doubleBalance() public {
+        uint256 newBalance = balance * 2;
+        assert(newBalance >= balance); // This checks for overflow
+        balance = newBalance;
     }
 
-    function burn(address from, uint256 value) external {
-        _burn(from, value);
+    // Function to reset the balance
+    // Uses revert() to handle unauthorized access
+    function resetBalance() public {
+        if (msg.sender != address(0x123)) {
+            revert("Unauthorized access.");
+        }
+        balance = 0;
     }
 
+    // Function to get the current balance
+    function getBalance() public view returns (uint256) {
+        return balance;
+    }
 }
-
 ```
 
-To compile the code, click on the `Solidity Compiler` tab in the left-hand sidebar. Make sure the `Compiler` option is set to a compatible version (e.g., 0.8.0 or later), and then click on the `Fauna.sol` button.
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to a compatible version (e.g., 0.8.0 or later), and then click on the "Compile ErrorHandlingExample.sol" button.
 
-Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the created contract from the dropdown menu, and then click on the `Deploy` button.
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the ErrorHandlingExample contract from the dropdown menu, and then click on the "Deploy" button.
 
-Deploy the Contract:
+Once the contract is deployed, you can interact with it by calling the contract's functions. Here are the steps for some example interactions:
 
-Go to the "Deploy & Run Transactions" tab.
-Enter the initial supply (e.g., 1000).
-Click "Deploy".
-
-## Interact with the Contract:
-
-After deployment, the contract instance will appear under "Deployed Contracts".
-
-### Mint Tokens:
-Select the `mint` function.
-Provide the recipient address and the amount of tokens to mint.
-Example: `mint("0xRecipientAddress", 100)`.
-
-### Burn Tokens:
-Select the `burn` function.
-Provide the amount of tokens to burn.
-Example: `burn(50)`.
-
-### Transfer Tokens:
-Use the inherited transfer function to transfer tokens to another address.
-Example: `transfer("0xRecipientAddress", 25)`.
-
+### Deposit Function: Enter a value in the deposit input field and click deposit.
+### Withdraw Function: Enter a value in the withdraw input field and click withdraw.
+### Double Balance Function: Click the doubleBalance button.
+### Reset Balance Function: Click the resetBalance button.
+### Get Balance Function: Click the getBalance button to view the current balance.
 
 ## Authors
 Abero Isaiah D. Geronga
 
 ## License
-This project currently has no license.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
