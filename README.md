@@ -1,6 +1,6 @@
 # ETH-AVAX PROJECT 1
 
-This Solidity program demonstrates the use of `require()`, `assert()`, and `revert()` statements for error handling in smart contracts. The purpose of this program is to provide a basic understanding of these statements and their usage in different scenarios.
+As per the instructions from Metacrafters: "For this project, you will write a smart contract to create your own ERC20 token and deploy it using HardHat or Remix. Once deployed, you should be able to interact with it for your walk-through video. From your chosen tool, the contract owner should be able to mint tokens to a provided address and any user should be able to burn and transfer tokens."
 
 ## Description
 
