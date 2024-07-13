@@ -49,7 +49,7 @@ contract Fauna is ERC20 {
 
 ```
 
-To compile the code, click on the `Solidity Compiler` tab in the left-hand sidebar. Make sure the `Compiler` option is set to a compatible version (e.g., 0.8.0 or later), and then click on the `project.sol` button.
+To compile the code, click on the `Solidity Compiler` tab in the left-hand sidebar. Make sure the `Compiler` option is set to a compatible version (e.g., 0.8.0 or later), and then click on the `Fauna.sol` button.
 
 Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the created contract from the dropdown menu, and then click on the `Deploy` button.
 
